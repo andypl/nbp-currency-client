@@ -12,7 +12,7 @@ public enum Code {
     CZK("korona czeska"),
     DKK("korona duńska"),
     NOK("korona norweska"),
-    SEL("korona szwedzka"),
+    SEK("korona szwedzka"),
     XDR("SDR (MFW)");
 
     private String description;
