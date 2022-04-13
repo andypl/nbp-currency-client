@@ -7,4 +7,5 @@ public record ExchangeRates(Table table,
                             String no,
                             LocalDate tradingDate,
                             LocalDate effectiveDate,
-                            Set<Rate> rates) {}
+                            Set<Rate> rates) {
+}
