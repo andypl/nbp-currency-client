@@ -1,6 +1,9 @@
 package pl.info.czerniak.nbpcurrencyclient.model;
 
-public enum Code {
+import lombok.Getter;
+
+@Getter
+public enum RateCode {
     USD("dolar amerykański"),
     AUD("dolar australijski"),
     CAD("dolar kanadyjski"),
@@ -17,11 +20,7 @@ public enum Code {
 
     private String description;
 
-    Code(String description) {
+    RateCode(String description) {
         this.description = description;
-    }
-
-    public String getDescription() {
-        return description;
     }
 }

@@ -45,7 +45,7 @@ public class ExchangeRatesArrayMapper {
             try {
                 rate = mapper.readValue(rates.getJSONObject(i).toString(), Rate.class);
             } catch (JsonProcessingException e) {
-                throw new RuntimeException(e); //TODO Catch exceptions using a Interceptor and print all it
+                throw new RuntimeException(e); //TODO Catch exceptions using a Interceptor
             }
             result.add(rate);
         }

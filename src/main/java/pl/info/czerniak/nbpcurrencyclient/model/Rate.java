@@ -3,7 +3,7 @@ package pl.info.czerniak.nbpcurrencyclient.model;
 import java.math.BigDecimal;
 
 public record Rate(String currency,
-                   Code code,
+                   RateCode rateCode,
                    BigDecimal bid,
                    BigDecimal ask) {
 }
