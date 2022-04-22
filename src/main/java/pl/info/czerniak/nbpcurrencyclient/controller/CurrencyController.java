@@ -3,8 +3,13 @@ package pl.info.czerniak.nbpcurrencyclient.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import pl.info.czerniak.nbpcurrencyclient.model.RateCode;
 import pl.info.czerniak.nbpcurrencyclient.model.ExchangeRates;
+import pl.info.czerniak.nbpcurrencyclient.model.RateType;
+import pl.info.czerniak.nbpcurrencyclient.model.SingleRate;
 import pl.info.czerniak.nbpcurrencyclient.service.CurrencyService;
 
 @RestController
@@ -14,5 +19,11 @@ public class CurrencyController {
     @GetMapping("/exchangeRates")
     public ExchangeRates getExchangeRates() throws JsonProcessingException {
         return currencyService.getRates();
+    }
+
+    @GetMapping("/exchangeRate/{rateCode}/{rateType}")
+    @ResponseBody
+    public SingleRate getRate(@PathVariable RateCode rateCode, @PathVariable RateType rateType) {
+        return currencyService.getRate(rateCode, rateType);
     }
 }
