@@ -10,6 +10,7 @@ import pl.info.czerniak.nbpcurrencyclient.model.RateCode;
 import pl.info.czerniak.nbpcurrencyclient.model.ExchangeRates;
 import pl.info.czerniak.nbpcurrencyclient.model.RateType;
 import pl.info.czerniak.nbpcurrencyclient.model.SingleRate;
+import pl.info.czerniak.nbpcurrencyclient.model.SingleShortRate;
 import pl.info.czerniak.nbpcurrencyclient.service.CurrencyService;
 
 @RestController
@@ -17,13 +18,19 @@ import pl.info.czerniak.nbpcurrencyclient.service.CurrencyService;
 public class CurrencyController {
     private final CurrencyService currencyService;
     @GetMapping("/exchangeRates")
+    @ResponseBody
     public ExchangeRates getExchangeRates() throws JsonProcessingException {
         return currencyService.getRates();
     }
 
+    @GetMapping("/exchangeRate/{rateCode}")
+    @ResponseBody
+    public SingleRate getFullRate(@PathVariable RateCode rateCode) {
+        return currencyService.getRate(rateCode);
+    }
     @GetMapping("/exchangeRate/{rateCode}/{rateType}")
     @ResponseBody
-    public SingleRate getRate(@PathVariable RateCode rateCode, @PathVariable RateType rateType) {
-        return currencyService.getRate(rateCode, rateType);
+    public SingleShortRate getRate(@PathVariable RateCode rateCode, @PathVariable RateType rateType) {
+        return currencyService.getRateByType(rateCode, rateType);
     }
 }

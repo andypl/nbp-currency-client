@@ -1,4 +1,4 @@
-package pl.info.czerniak.nbpcurrencyclient.service;
+package pl.info.czerniak.nbpcurrencyclient.mapper;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
